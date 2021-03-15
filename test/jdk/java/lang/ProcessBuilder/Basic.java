@@ -1831,8 +1831,10 @@ public class Basic {
             list.add(3, "-Xdump:heap:none");
             list.add(4, "-Xdump:system:events=gpf+abort+traceassert+corruptcache");
             list.add("ArrayOOME");
+System.out.println("CMD: "+list);
             ProcessResults r = run(new ProcessBuilder(list));
 System.out.println("=====> "+r.err());
+System.out.println("=====> "+r);
             check(r.err().contains("java.lang.OutOfMemoryError:"));
             check(r.err().contains(javaExe));
             check(r.err().contains(System.getProperty("java.version")));
