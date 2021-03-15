@@ -1832,6 +1832,7 @@ public class Basic {
             list.add(4, "-Xdump:system:events=gpf+abort+traceassert+corruptcache");
             list.add("ArrayOOME");
             ProcessResults r = run(new ProcessBuilder(list));
+System.out.println("======> "+r.err());
             check(r.err().contains("java.lang.OutOfMemoryError:"));
             check(r.err().contains(javaExe));
             check(r.err().contains(System.getProperty("java.version")));
